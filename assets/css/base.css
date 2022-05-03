@@ -1,0 +1,211 @@
+:root {
+    --colorWhile: #fff;
+    --colorBlack: #000;
+    --colorText: #333;
+    --colorPrimary: #ee4d2d;
+    --colorBorder: #dbdbdb;
+
+    --navbar-height: 34px;
+    --header-height: 120px;
+    --header-with-search: calc(var(--header-height) - var(--navbar-height));
+}
+
+
+* {
+    box-sizing: inherit;
+}
+
+html {
+    /* HACK */
+    font-size: 62.5%;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+
+}
+
+
+
+.grid {
+
+    width: 1200px;
+    max-width: 100%;
+    /* width:1200px nghĩa là với kích thước màn 
+    hình lớn hơn 1200 thì kích thước của class grid chỉ là
+    1200 */
+    /* max-width: 100% nó có tác dụng với
+    những màn hình nhỏ hơn 1200 thì của class grid 
+    vẫn tương tứng với màn hình */
+    margin: 0 auto; 
+    /* margin: 0 auto nó sẽ tự động căn khi khối này nằm trong 1 khối khác
+     */
+}
+.grid-full-width {
+    width: 100%;
+}
+
+.grid-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -12px;
+    margin-right: -12px;
+    
+
+    /* deisplay: flex giúp các phần tử
+    nằm cùng nhau trên 1 hàng ngang */
+
+    /* flex-wrap: wrap nếu độ dài thằng con vượt quá
+    .grid-row thì sẽ nhảy xuống hàng */
+}
+/* 100% của html là 16px */
+/* animation (hoạt hình) */
+/* keyframes cho phép tạo ra những
+ chuyển động hoạt hình theo dạng khung
+ key (tử khóa) frames (khung) */
+
+ /* fadein (phai màu) */
+
+
+ .grid__colum-2 {
+     width: 16.6667%;
+     padding-left: 10px;
+     padding-right: 10px;
+ }
+
+ .grid__colum-10 {
+     width: 83.334%;
+     padding-left: 10px;
+     padding-right: 10px;
+ }
+.grid__colum-2-4 {
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 20%;
+    
+}
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+
+}
+@keyframes growth {
+    from {
+        transform: scale(0.7);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+/* modal */
+
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    animation: fadein linear 0.1s;
+
+}
+
+.modal__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal__body {
+    /* width: 400px;
+    height: 400px; */
+    background-color: var(--colorWhile);
+    margin: auto;
+    z-index: 1;
+    border-radius: 5px;
+    overflow: hidden;
+    animation: growth ease-in 0.1s;
+
+}
+
+/* button style */
+
+.btn {
+    min-width: 142px;
+    height: 36px;
+    border: none;
+    border-radius: 2px;
+    font-size: 1.5rem;
+    padding: 0;
+    cursor: pointer;
+}
+.btn__normal:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.btn.btn__primary {
+    background-color: var(--colorPrimary);
+    color: var(--colorWhile);
+}
+
+.select-input__list {
+    position: absolute;
+    top: 65%;
+    left: 0;
+    right: 0;
+    background-color: var(--colorWhile);
+    list-style: none;
+    padding: 10px 16px ;
+    min-width: 148px;
+    border-radius: 2px;
+    display: none;
+
+
+}
+
+.select-input:hover .select-input__list {
+    display: block;
+}
+
+.select-input__link {
+    font-size: 1.4rem;
+    color: var(--colorText);
+    text-decoration: none;
+    display: block;
+    padding: 5px 0;
+}
+.select-input__link:hover {
+    color: var(--colorPrimary);
+}
+
+
+/* pagination */
+
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin-left: 25%;
+}
+.pagination-item {
+    list-style: none;
+}
+
+.pagination-item__link {
+    display: block;
+    text-decoration: none;
+    color: var(--colorText);
+    font-size: 1.6rem;
+    min-width: 40px;
+    text-align: center;
+    
+}
+.pagination-item__numberone {
+    background-color: var(--colorPrimary);
+    border-radius: 2px;
+    color: var(--colorWhile);
+}
